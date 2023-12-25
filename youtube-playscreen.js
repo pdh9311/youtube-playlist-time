@@ -41,8 +41,9 @@ function calculateForplaylistTime(start, end) {
     _totalTime.minute = minuteR;
     _totalTime.hour = hourR;
     _totalTime.day = day;
-
-    console.log(_totalTime);
+    
+    console.log('● BETWEEN', start, 'AND', end);
+    console.log('● time:', _totalTime);
 }
 
 const startNum = prompt('시간을 계산할 시작 번호를 입력하세요.');
