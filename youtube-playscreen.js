@@ -46,6 +46,9 @@ function calculateForplaylistTime(start, end) {
     console.log('● time:', _totalTime);
 }
 
-const startNum = prompt('시간을 계산할 시작 번호를 입력하세요.');
-const endNum = prompt('시간을 계산할 끝 번호를 입력하세요.');
+const startNum = Number(prompt('시간을 계산할 시작 번호를 입력하세요.'));
+let endNum = Number(prompt('시간을 계산할 끝 번호를 입력하세요.'));
+if (endNum === 0) {
+    endNum = $playlistItems.length;
+}
 calculateForplaylistTime(startNum, endNum);
