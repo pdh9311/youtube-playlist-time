@@ -1,4 +1,14 @@
-const $playlistItems = document.querySelectorAll('ytd-playlist-panel-video-renderer');
+let itemsTag = '';
+switch (window.location.pathname) {
+    case '/playlist':
+        itemsTag = 'ytd-playlist-video-renderer'; 
+        break;
+    case '/watch':
+        itemsTag = 'ytd-playlist-panel-video-renderer'; 
+        break;
+}
+
+const $playlistItems = document.querySelectorAll(itemsTag);
 
 function calculateForplaylistTime(start, end) {
     const totalTime = {
@@ -9,9 +19,8 @@ function calculateForplaylistTime(start, end) {
     };
 
     for (let i = start - 1; i < end; i++) {
-        const idx = $playlistItems[i].querySelector('#index');
         const time = $playlistItems[i].querySelector('#text');
-        //console.log(idx.textContent, time.textContent.trim());
+
         const timeData = time.textContent.trim().split(':');
         if (timeData.length === 3) {
             totalTime.hour = Number(totalTime.hour) + Number(timeData[0]);
@@ -20,8 +29,7 @@ function calculateForplaylistTime(start, end) {
         } else if (timeData.length === 2) {
             totalTime.minute = Number(totalTime.minute) + Number(timeData[0]);
             totalTime.second = Number(totalTime.second) + Number(timeData[1]);
-        }
-        //console.log('timeData', timeData);
+        }        
     }
 
     const _totalTime = {...totalTime};
