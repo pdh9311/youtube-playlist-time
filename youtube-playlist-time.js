@@ -58,7 +58,7 @@ if (window.location.host === 'www.youtube.com') {
     const startNum = Number(prompt('시간을 계산할 시작 번호를 입력하세요.'));
     let endNum = Number(prompt('시간을 계산할 끝 번호를 입력하세요.'));
     if (startNum === 0) {
-        startNum = 0;
+        startNum = Number(0);
     }
     if (endNum === 0) {
         endNum = $playlistItems.length;
