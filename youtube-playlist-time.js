@@ -20,7 +20,8 @@ if (window.location.host === 'www.youtube.com') {
         };
 
         for (let i = start - 1; i < end; i++) {
-            const time = $playlistItems[i].querySelector('#text');
+            const time = $playlistItems[i].querySelector('ytd-thumbnail-overlay-time-status-renderer > div > span');
+            //console.log(i, $playlistItems[i], time);
 
             const timeData = time.textContent.trim().split(':');
             if (timeData.length === 3) {
@@ -58,7 +59,7 @@ if (window.location.host === 'www.youtube.com') {
     let startNum = Number(prompt('시간을 계산할 시작 번호를 입력하세요.'));
     let endNum = Number(prompt('시간을 계산할 끝 번호를 입력하세요.'));
     if (startNum === 0) {
-        startNum = 0;
+        startNum = 1;
     }
     if (endNum === 0) {
         endNum = $playlistItems.length;
